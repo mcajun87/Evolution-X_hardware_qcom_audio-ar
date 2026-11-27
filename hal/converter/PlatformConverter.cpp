@@ -428,7 +428,7 @@ outputFlagsStreamtypeMap populatemOutputFlagsStreamtypeMap() {
     result[voipPlaybackFlags] =  PAL_STREAM_VOIP_RX;
     constexpr auto spatialPlaybackFlags =
             static_cast<int32_t>(1 << flagCastToint(AudioOutputFlags::SPATIALIZER));
-    result[spatialPlaybackFlags] = PAL_STREAM_SPATIAL_AUDIO;
+    result[spatialPlaybackFlags] = PAL_STREAM_DEEP_BUFFER;
     constexpr auto ullPlaybackFlags = static_cast<int32_t>(
             1 << flagCastToint(AudioOutputFlags::FAST) | 1 << flagCastToint(AudioOutputFlags::RAW));
     result[ullPlaybackFlags] = PAL_STREAM_ULTRA_LOW_LATENCY;

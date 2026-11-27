@@ -984,7 +984,9 @@ void StreamOutPrimary::configure() {
     } else if (mTag == Usecase::VOIP_PLAYBACK) {
         attr->type = PAL_STREAM_VOIP_RX;
     } else if (mTag == Usecase::SPATIAL_PLAYBACK) {
-        attr->type = PAL_STREAM_SPATIAL_AUDIO;
+        // PAL has no spatial audio stream on this platform, and the effect runs
+        // in AudioFlinger, so a plain PCM stream is enough.
+        attr->type = PAL_STREAM_DEEP_BUFFER;
     } else if (mTag == Usecase::ULL_PLAYBACK) {
         attr->type = PAL_STREAM_ULTRA_LOW_LATENCY;
     } else if (mTag == Usecase::IN_CALL_MUSIC) {
